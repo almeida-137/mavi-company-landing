@@ -4,20 +4,20 @@ const steps = [
   {
     icon: Search,
     number: "01",
-    title: "Diagnostico tecnico e mapeamento",
-    description: "Analisamos sua operacao e identificamos oportunidades de automacao e melhoria.",
+    title: "Diagnóstico técnico e mapeamento",
+    description: "Analisamos sua operação e identificamos oportunidades de automação e melhoria.",
   },
   {
     icon: Layers,
     number: "02",
-    title: "Arquitetura da solucao",
-    description: "Desenhamos a estrutura tecnica ideal para suas necessidades e objetivos.",
+    title: "Arquitetura da solução",
+    description: "Desenhamos a estrutura técnica ideal para suas necessidades e objetivos.",
   },
   {
     icon: Code,
     number: "03",
-    title: "Desenvolvimento e automacoes",
-    description: "Construimos sistemas robustos com IA integrada e automacoes inteligentes.",
+    title: "Desenvolvimento e automações",
+    description: "Construímos sistemas robustos com IA integrada e automações inteligentes.",
   },
   {
     icon: Rocket,
@@ -35,10 +35,10 @@ export function HowItWorks() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Simples. Tecnico. Eficiente.
+            Simples. Técnico. Eficiente.
           </h2>
           <p className="text-lg text-muted-foreground">
-            Nosso processo garante resultados previsiveis
+            Nosso processo garante resultados previsíveis
           </p>
         </div>
 

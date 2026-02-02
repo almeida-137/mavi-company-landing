@@ -1,16 +1,16 @@
 import { Check, X, Zap } from "lucide-react"
 
 const forWho = [
-  "Negocios digitais com operacao complexa",
-  "Empresas em fase de crescimento ou estruturacao",
-  "Times que precisam automatizar processos criticos",
-  "Operacoes que exigem tecnologia para escalar",
+  "Negócios digitais com operação complexa",
+  "Empresas em fase de crescimento ou estruturação",
+  "Times que precisam automatizar processos críticos",
+  "Operações que exigem tecnologia para escalar",
 ]
 
 const notForWho = [
-  "Nao e para quem busca solucoes prontas ou genericas",
-  "Nao e para quem nao esta disposto a estruturar processos",
-  "Nao e para quem ve tecnologia como custo",
+  "Não é para quem busca soluções prontas ou genéricas",
+  "Não é para quem não está disposto a estruturar processos",
+  "Não é para quem vê tecnologia como custo",
 ]
 
 export function TargetAudience() {
@@ -22,7 +22,7 @@ export function TargetAudience() {
             Trabalhamos com empresas que entendem que escala exige tecnologia
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Nao entregamos solucoes genericas. Construimos sistemas para operacoes que precisam de eficiencia, controle e crescimento previsivel.
+            Não entregamos soluções genéricas. Construímos sistemas para operações que precisam de eficiência, controle e crescimento previsível.
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export function TargetAudience() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Lista positiva */}
             <div className="p-8 rounded-2xl border border-green-500/30 bg-green-500/5 backdrop-blur-sm">
-              <h3 className="text-lg font-bold text-foreground mb-6">Para quem e:</h3>
+              <h3 className="text-lg font-bold text-foreground mb-6">Para quem é:</h3>
               <div className="space-y-4">
                 {forWho.map((item) => (
                   <div key={item} className="flex items-start gap-4">
@@ -45,7 +45,7 @@ export function TargetAudience() {
 
             {/* Lista negativa */}
             <div className="p-8 rounded-2xl border border-red-500/30 bg-red-500/5 backdrop-blur-sm">
-              <h3 className="text-lg font-bold text-foreground mb-6">Para quem nao e:</h3>
+              <h3 className="text-lg font-bold text-foreground mb-6">Para quem não é:</h3>
               <div className="space-y-4">
                 {notForWho.map((item) => (
                   <div key={item} className="flex items-start gap-4">
@@ -67,10 +67,10 @@ export function TargetAudience() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-foreground mb-2">
-                  Tecnologia nao e diferencial. E pre-requisito.
+                  Tecnologia não é diferencial. É pre-requisito.
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Empresas que crescem de forma sustentavel constroem sistemas antes de escalar pessoas.
+                  Empresas que crescem de forma sustentável constroem sistemas antes de escalar pessoas.
                 </p>
               </div>
             </div>

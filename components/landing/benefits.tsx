@@ -3,32 +3,32 @@ import { TrendingDown, Scale, ShieldCheck, Target, Database, Clock } from "lucid
 const benefits = [
   {
     icon: TrendingDown,
-    title: "Reducao de custos operacionais",
+    title: "Redução de custos operacionais",
     description: "Automatize tarefas repetitivas e reduza gastos com operacoes manuais.",
   },
   {
     icon: Scale,
     title: "Escala sem aumentar equipe",
-    description: "Cresca sua operacao sem precisar contratar proporcionalmente.",
+    description: "Cresca sua operação sem precisar contratar proporcionalmente.",
   },
   {
     icon: ShieldCheck,
     title: "Menos erros humanos",
-    description: "Sistemas automatizados garantem consistencia e precisao.",
+    description: "Sistemas automatizados garantem consistência e precisão.",
   },
   {
     icon: Target,
-    title: "Processos previsiveis",
+    title: "Processos previsíveis",
     description: "Tenha controle total sobre o fluxo de trabalho da sua empresa.",
   },
   {
     icon: Database,
     title: "Mais controle e dados",
-    description: "Dashboards em tempo real para decisoes baseadas em dados.",
+    description: "Dashboards em tempo real para decisões baseadas em dados.",
   },
   {
     icon: Clock,
-    title: "Automacao 24/7",
+    title: "Automação 24/7",
     description: "Sistemas e fluxos automatizados operando continuamente, sem pausas, gargalos ou dependencia humana.",
   },
 ]

@@ -17,10 +17,10 @@ export function CTA() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="p-8 md:p-12 rounded-2xl border border-primary/30 bg-gradient-to-b from-primary/10 to-transparent backdrop-blur-sm">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-              Pronto para transformar sua operacao com IA?
+              Pronto para transformar sua operação com IA?
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto">
-              Fale com a MaviCompany e descubra como a tecnologia pode trabalhar por voce.
+              Fale com a MaviCompany e descubra como a tecnologia pode trabalhar por você.
             </p>
             <Button
               size="lg"
@@ -28,7 +28,7 @@ export function CTA() {
               onClick={() => openModal("diagnostic")}
             >
               <Rocket className="mr-2 h-5 w-5" />
-              Solicitar diagnostico tecnico
+              Solicitar diagnóstico técnico
             </Button>
           </div>
         </div>

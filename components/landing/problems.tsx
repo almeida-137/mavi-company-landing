@@ -9,17 +9,17 @@ const problems = [
   {
     icon: Unplug,
     text: "Sistemas que nao se integram",
-    description: "Ferramentas isoladas criam retrabalho, dados duplicados e falta de visibilidade sobre a operacao.",
+    description: "Ferramentas isoladas criam retrabalho, dados duplicados e falta de visibilidade sobre a operação.",
   },
   {
     icon: MessageSquareOff,
     text: "Atendimento e vendas nao automatizados",
-    description: "Leads esfriam, clientes esperam e oportunidades sao perdidas por falta de respostas rapidas e personalizadas.",
+    description: "Leads esfriam, clientes esperam e oportunidades sao perdidas por falta de respostas rápidas e personalizadas.",
   },
   {
     icon: BarChart3,
     text: "Falta de dados em tempo real",
-    description: "Decisoes sao tomadas no escuro, sem metricas claras ou dashboards que mostrem o que esta funcionando.",
+    description: "Decisões são tomadas no escuro, sem métricas claras ou dashboards que mostrem o que está funcionando.",
   },
   {
     icon: Users,
@@ -28,8 +28,8 @@ const problems = [
   },
   {
     icon: UserX,
-    text: "Dependencia excessiva de pessoas",
-    description: "Operacoes que dependem demais de pessoas nao escalam e ficam vulneraveis a falhas, atrasos e rotatividade.",
+    text: "Dependência excessiva de pessoas",
+    description: "Operações que dependem demais de pessoas não escalam e ficam vulneráveis a falhas, atrasos e rotatividade.",
   },
 ]
 
@@ -41,7 +41,7 @@ export function Problems() {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-            Seu negocio esta travado por processos manuais?
+            Seu negócio esta travado por processos manuais?
           </h2>
         </div>
 
@@ -70,7 +70,7 @@ export function Problems() {
           <div className="p-6 md:p-8 rounded-xl border border-primary/30 bg-primary/5">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               Enquanto isso, empresas orientadas por tecnologia{" "}
-              <span className="text-primary font-semibold">escalam com automacao e IA.</span>
+              <span className="text-primary font-semibold">escalam com automação e IA.</span>
             </p>
           </div>
         </div>

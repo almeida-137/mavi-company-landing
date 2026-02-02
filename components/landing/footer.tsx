@@ -13,7 +13,7 @@ export function Footer() {
               className="h-8 w-auto"
             />
             <p className="text-xs text-muted-foreground">
-              Automacao • IA • Desenvolvimento
+              Automação • IA • Desenvolvimento
             </p>
           </div>
 

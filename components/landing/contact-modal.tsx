@@ -28,11 +28,11 @@ export function ContactModal({ open, onOpenChange, variant = "specialist" }: Con
 
   const title = variant === "specialist" 
     ? "Fale com um especialista" 
-    : "Solicitar diagnostico tecnico"
+    : "Solicitar diagnóstico técnico"
   
   const description = variant === "specialist"
-    ? "Preencha o formulario abaixo e entraremos em contato em ate 24 horas."
-    : "Solicite uma analise completa da sua operacao e descubra oportunidades de automacao."
+    ? "Preencha o formulário abaixo e entraremos em contato em ate 24 horas."
+    : "Solicite uma análise completa da sua operação e descubra oportunidades de automação."
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()

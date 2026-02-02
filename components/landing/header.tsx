@@ -48,7 +48,7 @@ export function Header() {
               onClick={(e) => handleScrollTo(e, "solucoes")}
               className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium cursor-pointer"
             >
-              Solucoes
+              Soluções
             </a>
             <a
               href="#como-funciona"

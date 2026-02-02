@@ -34,20 +34,20 @@ export function Hero() {
           {/* Top Label */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8">
             <span className="text-primary text-xs md:text-sm font-medium tracking-wider">
-              AUTOMACAO  •  IA  •  DESENVOLVIMENTO
+              AUTOMAÇÃO  •  IA  •  DESENVOLVIMENTO
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-balance">
             <span className="text-foreground">DESENVOLVIMENTO E </span>
-            <span className="text-primary">AUTOMACOES COM IA</span>
-            <span className="text-foreground"> QUE ESCALAM NEGOCIOS</span>
+            <span className="text-primary">AUTOMAÇÕES COM IA</span>
+            <span className="text-foreground"> QUE ESCALAM NEGÓCIOS</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Desenvolvemos sistemas, integracoes e automacoes inteligentes para empresas que querem crescer com tecnologia, previsibilidade e escala.
+            Desenvolvemos sistemas, integracoes e automações inteligentes para empresas que querem crescer com tecnologia, previsibilidade e escala.
           </p>
 
           {/* CTAs */}
@@ -57,7 +57,7 @@ export function Hero() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold group"
               onClick={() => openModal("diagnostic")}
             >
-              Solicitar diagnostico tecnico
+              Solicitar diagnóstico técnico
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -82,12 +82,12 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                <span className="ml-4 text-xs text-muted-foreground">dashboard.mavicompany.com</span>
+                <span className="ml-4 text-xs text-muted-foreground">dashboard.mavicompany.com.br</span>
               </div>
               {/* Dashboard Content */}
               <div className="p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
-                  { label: "Automacoes Ativas", value: "127", change: "+23%" },
+                  { label: "Automações Ativas", value: "127", change: "+23%" },
                   { label: "Leads Processados", value: "3.4k", change: "+45%" },
                   { label: "Tempo Economizado", value: "892h", change: "+67%" },
                   { label: "ROI", value: "340%", change: "+12%" },
@@ -106,7 +106,7 @@ export function Hero() {
               <div className="px-6 md:px-8 pb-6 md:pb-8">
                 <div className="h-32 md:h-48 rounded-lg bg-gradient-to-br from-primary/10 via-secondary to-accent/10 border border-border/30 flex items-center justify-center">
                   <div className="flex items-center gap-4 md:gap-8">
-                    {["Input", "IA", "Automacao", "Output"].map((step, index) => (
+                    {["Input", "IA", "Automação", "Output"].map((step, index) => (
                       <div key={step} className="flex items-center">
                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center">
                           <span className="text-xs md:text-sm font-medium text-primary">{step}</span>

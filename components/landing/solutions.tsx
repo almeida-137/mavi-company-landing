@@ -4,21 +4,21 @@ const solutions = [
   {
     icon: Code2,
     title: "Desenvolvimento de Sistemas Sob Medida",
-    items: ["Plataformas web", "Dashboards", "SaaS", "Backends escalaveis"],
+    items: ["Plataformas web", "Dashboards", "SaaS", "Backends escaláveis"],
   },
   {
     icon: Bot,
-    title: "Automacoes com Inteligencia Artificial",
+    title: "Automações com Inteligência Artificial",
     items: [
       "Chatbots inteligentes",
-      "Classificacao de leads",
+      "Classificação de leads",
       "Atendimento automatizado",
       "Processos internos com IA",
     ],
   },
   {
     icon: Plug,
-    title: "Integracoes e APIs",
+    title: "Integrações e APIs",
     items: ["WhatsApp", "CRMs", "ERPs", "Pagamentos", "Plataformas digitais"],
   },
 ]
@@ -29,10 +29,10 @@ export function Solutions() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-            A MaviCompany constroi a infraestrutura que faz seu negocio escalar
+            A MaviCompany constroi a infraestrutura que faz seu negócio escalar
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Nao entregamos promessas.{" "}
+            Não entregamos promessas.{" "}
             <span className="text-primary font-semibold">Entregamos sistemas funcionando.</span>
           </p>
         </div>
