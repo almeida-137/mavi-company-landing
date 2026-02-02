@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Rocket } from "lucide-react"
-import { useModal } from "./modal-provider"
+import { Button } from "@/components/ui/button";
+import { Rocket } from "lucide-react";
+import { useModal } from "./modal-provider";
 
 export function CTA() {
-  const { openModal } = useModal()
+  const { openModal } = useModal();
 
   return (
     <section className="py-20 md:py-32 relative">
@@ -17,10 +17,11 @@ export function CTA() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="p-8 md:p-12 rounded-2xl border border-primary/30 bg-gradient-to-b from-primary/10 to-transparent backdrop-blur-sm">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-              Pronto para transformar sua operação com IA?
+              Pronto para evoluir sua operação com tecnologia e IA?
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto">
-              Fale com a MaviCompany e descubra como a tecnologia pode trabalhar por você.
+              A MaviCompany desenvolve sistemas, integra ferramentas e cria
+              automações inteligentes para escalar seu negócio.
             </p>
             <Button
               size="lg"
@@ -34,5 +35,5 @@ export function CTA() {
         </div>
       </div>
     </section>
-  )
+  );
 }
