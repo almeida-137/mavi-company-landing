@@ -1,43 +1,56 @@
-import { AlertCircle, Unplug, MessageSquareOff, BarChart3, Users, UserX } from "lucide-react"
+import {
+  AlertCircle,
+  Unplug,
+  MessageSquareOff,
+  BarChart3,
+  Users,
+  UserX,
+} from "lucide-react";
 
 const problems = [
   {
     icon: AlertCircle,
-    text: "Processos operacionais manuais",
-    description: "Tarefas repetitivas consomem tempo, geram erros e impedem sua equipe de focar no que realmente importa.",
+    text: "Processos manuais e sistemas mal estruturados",
+    description:
+      "Operações feitas no manual ou com sistemas frágeis geram erros, retrabalho e impedem o crescimento sustentável do negócio.",
   },
   {
     icon: Unplug,
-    text: "Sistemas que nao se integram",
-    description: "Ferramentas isoladas criam retrabalho, dados duplicados e falta de visibilidade sobre a operação.",
+    text: "Sistemas que não se integram",
+    description:
+      "Plataformas, e-commerces e ferramentas que não conversam entre si criam dados fragmentados e dificultam a gestão e a tomada de decisão.",
   },
   {
     icon: MessageSquareOff,
-    text: "Atendimento e vendas nao automatizados",
-    description: "Leads esfriam, clientes esperam e oportunidades sao perdidas por falta de respostas rápidas e personalizadas.",
+    text: "Vendas e atendimento sem inteligência",
+    description:
+      "Sem automação e IA, leads esfriam, clientes esperam e oportunidades são perdidas por falta de respostas rápidas e personalizadas.",
   },
   {
     icon: BarChart3,
-    text: "Falta de dados em tempo real",
-    description: "Decisões são tomadas no escuro, sem métricas claras ou dashboards que mostrem o que está funcionando.",
+    text: "Falta de dados e visão em tempo real",
+    description:
+      "Sem dashboards, integrações e dados centralizados, decisões são tomadas no escuro e o negócio perde eficiência.",
   },
   {
     icon: Users,
-    text: "Escalar exige mais pessoas e mais custo",
-    description: "Crescer significa contratar mais, aumentar custos e lidar com complexidade operacional crescente.",
+    text: "Crescimento que depende de mais pessoas",
+    description:
+      "Sem sistemas bem desenvolvidos e automações inteligentes, crescer significa aumentar equipe, custo e complexidade operacional.",
   },
   {
     icon: UserX,
-    text: "Dependência excessiva de pessoas",
-    description: "Operações que dependem demais de pessoas não escalam e ficam vulneráveis a falhas, atrasos e rotatividade.",
+    text: "Negócio dependente de pessoas e não de sistemas",
+    description:
+      "Quando processos não são suportados por tecnologia, o negócio fica vulnerável a falhas humanas, atrasos e alta rotatividade.",
   },
-]
+];
 
 export function Problems() {
   return (
     <section className="py-20 md:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
@@ -56,9 +69,13 @@ export function Problems() {
                   <problem.icon className="h-5 w-5 text-red-400" />
                 </div>
                 <div>
-                  <p className="text-foreground font-medium leading-relaxed">{problem.text}</p>
+                  <p className="text-foreground font-medium leading-relaxed">
+                    {problem.text}
+                  </p>
                   {problem.description && (
-                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{problem.description}</p>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                      {problem.description}
+                    </p>
                   )}
                 </div>
               </div>
@@ -70,11 +87,13 @@ export function Problems() {
           <div className="p-6 md:p-8 rounded-xl border border-primary/30 bg-primary/5">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               Enquanto isso, empresas orientadas por tecnologia{" "}
-              <span className="text-primary font-semibold">escalam com automação e IA.</span>
+              <span className="text-primary font-semibold">
+                escalam com automação e IA.
+              </span>
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
