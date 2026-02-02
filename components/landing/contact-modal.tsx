@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
 
 interface ContactModalProps {
   open: boolean
@@ -25,6 +24,7 @@ interface ContactModalProps {
 export function ContactModal({ open, onOpenChange, variant = "specialist" }: ContactModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const title = variant === "specialist" 
     ? "Fale com um especialista" 
@@ -37,23 +37,55 @@ export function ContactModal({ open, onOpenChange, variant = "specialist" }: Con
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    setIsSubmitting(false)
-    setIsSuccess(true)
-    
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false)
-      onOpenChange(false)
-    }, 3000)
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      company: formData.get('company') as string,
+      message: formData.get('message') as string,
+      variant: variant,
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erro ao enviar formulário')
+      }
+
+      setIsSuccess(true)
+      
+      // Reset form and close modal after 3 seconds
+      setTimeout(() => {
+        setIsSuccess(false)
+        onOpenChange(false)
+        // Reset form
+        e.currentTarget.reset()
+      }, 3000)
+      
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erro ao enviar formulário. Tente novamente.')
+      console.error('Erro ao enviar formulário:', err)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   function handleOpenChange(newOpen: boolean) {
     if (!newOpen) {
       setIsSuccess(false)
+      setError(null)
     }
     onOpenChange(newOpen)
   }
@@ -79,6 +111,13 @@ export function ContactModal({ open, onOpenChange, variant = "specialist" }: Con
                 {description}
               </DialogDescription>
             </DialogHeader>
+            
+            {error && (
+              <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-3 flex items-start gap-2">
+                <AlertCircle className="h-5 w-5 text-destructive mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-destructive">{error}</p>
+              </div>
+            )}
             
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               <div className="space-y-2">
