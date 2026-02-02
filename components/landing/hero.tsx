@@ -1,7 +1,26 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
+import { useModal } from "./modal-provider"
 
 export function Hero() {
+  const { openModal } = useModal()
+
+  function handleScrollTo(targetId: string) {
+    const element = document.getElementById(targetId)
+    if (element) {
+      const headerOffset = 80
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    }
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
       {/* Background Glow Effects */}
@@ -36,6 +55,7 @@ export function Hero() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold group"
+              onClick={() => openModal("diagnostic")}
             >
               Solicitar diagnostico tecnico
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -44,6 +64,7 @@ export function Hero() {
               size="lg"
               variant="outline"
               className="border-border hover:bg-secondary text-foreground px-8 py-6 text-base font-semibold bg-transparent"
+              onClick={() => handleScrollTo("como-funciona")}
             >
               <Play className="mr-2 h-5 w-5" />
               Ver como funciona

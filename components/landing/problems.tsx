@@ -1,25 +1,35 @@
-import { AlertCircle, Unplug, MessageSquareOff, BarChart3, Users } from "lucide-react"
+import { AlertCircle, Unplug, MessageSquareOff, BarChart3, Users, UserX } from "lucide-react"
 
 const problems = [
   {
     icon: AlertCircle,
     text: "Processos operacionais manuais",
+    description: "Tarefas repetitivas consomem tempo, geram erros e impedem sua equipe de focar no que realmente importa.",
   },
   {
     icon: Unplug,
     text: "Sistemas que nao se integram",
+    description: "Ferramentas isoladas criam retrabalho, dados duplicados e falta de visibilidade sobre a operacao.",
   },
   {
     icon: MessageSquareOff,
     text: "Atendimento e vendas nao automatizados",
+    description: "Leads esfriam, clientes esperam e oportunidades sao perdidas por falta de respostas rapidas e personalizadas.",
   },
   {
     icon: BarChart3,
     text: "Falta de dados em tempo real",
+    description: "Decisoes sao tomadas no escuro, sem metricas claras ou dashboards que mostrem o que esta funcionando.",
   },
   {
     icon: Users,
     text: "Escalar exige mais pessoas e mais custo",
+    description: "Crescer significa contratar mais, aumentar custos e lidar com complexidade operacional crescente.",
+  },
+  {
+    icon: UserX,
+    text: "Dependencia excessiva de pessoas",
+    description: "Operacoes que dependem demais de pessoas nao escalam e ficam vulneraveis a falhas, atrasos e rotatividade.",
   },
 ]
 
@@ -42,10 +52,15 @@ export function Problems() {
               className="group p-6 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-primary/50 hover:bg-card/50 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 group-hover:bg-red-500/20 transition-colors">
+                <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 group-hover:bg-red-500/20 transition-colors shrink-0">
                   <problem.icon className="h-5 w-5 text-red-400" />
                 </div>
-                <p className="text-foreground font-medium leading-relaxed">{problem.text}</p>
+                <div>
+                  <p className="text-foreground font-medium leading-relaxed">{problem.text}</p>
+                  {problem.description && (
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{problem.description}</p>
+                  )}
+                </div>
               </div>
             </div>
           ))}

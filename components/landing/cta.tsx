@@ -1,7 +1,12 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Rocket } from "lucide-react"
+import { useModal } from "./modal-provider"
 
 export function CTA() {
+  const { openModal } = useModal()
+
   return (
     <section className="py-20 md:py-32 relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -20,6 +25,7 @@ export function CTA() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold group"
+              onClick={() => openModal("diagnostic")}
             >
               <Rocket className="mr-2 h-5 w-5" />
               Solicitar diagnostico tecnico

@@ -1,4 +1,4 @@
-import { TrendingDown, Scale, ShieldCheck, Target, Database } from "lucide-react"
+import { TrendingDown, Scale, ShieldCheck, Target, Database, Clock } from "lucide-react"
 
 const benefits = [
   {
@@ -25,6 +25,11 @@ const benefits = [
     icon: Database,
     title: "Mais controle e dados",
     description: "Dashboards em tempo real para decisoes baseadas em dados.",
+  },
+  {
+    icon: Clock,
+    title: "Automacao 24/7",
+    description: "Sistemas e fluxos automatizados operando continuamente, sem pausas, gargalos ou dependencia humana.",
   },
 ]
 
