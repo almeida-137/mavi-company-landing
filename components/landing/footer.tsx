@@ -5,9 +5,9 @@ export function Footer() {
   return (
     <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-8">
           {/* Logo e Descrição */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 lg:col-span-1">
             <div>
               {/* Logo */}
               <div className="flex flex-col items-center md:items-start gap-2">
@@ -16,16 +16,13 @@ export function Footer() {
                   alt="MaviCompany"
                   className="h-14 w-auto"
                 />
-                {/* <p className="text-xs text-muted-foreground">
-                  Automação • IA • Desenvolvimento
-                </p> */}
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed mt-3">
                 Transformamos processos em sistemas inteligentes
               </p>
             </div>
             <Link
-              href="#contato"
+              href="/contato"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-md text-sm font-medium transition-colors w-fit"
             >
               CONTRATE A MAVI
@@ -56,9 +53,120 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Institucional */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Institucional</h3>
+            <div className="flex flex-col gap-3 text-sm text-gray-400">
+              <Link
+                href="/sobre"
+                className="hover:text-white transition-colors"
+              >
+                Sobre a Mavi Company
+              </Link>
+              <Link
+                href="/como-trabalhamos"
+                className="hover:text-white transition-colors"
+              >
+                Como Trabalhamos
+              </Link>
+              <Link
+                href="/cases"
+                className="hover:text-white transition-colors"
+              >
+                Cases e Projetos
+              </Link>
+              <Link
+                href="/contato"
+                className="hover:text-white transition-colors"
+              >
+                Contato
+              </Link>
+              <Link
+                href="/trabalhe-conosco"
+                className="hover:text-white transition-colors"
+              >
+                Trabalhe Conosco
+              </Link>
+            </div>
+          </div>
+
+          {/* Serviços */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Serviços</h3>
+            <div className="flex flex-col gap-3 text-sm text-gray-400">
+              <Link
+                href="/servicos/desenvolvimento"
+                className="hover:text-white transition-colors"
+              >
+                Desenvolvimento Web
+              </Link>
+              <Link
+                href="/servicos/automacao"
+                className="hover:text-white transition-colors"
+              >
+                Automação de Processos
+              </Link>
+              <Link
+                href="/servicos/agentes-ia"
+                className="hover:text-white transition-colors"
+              >
+                Agentes de IA & Chatbots
+              </Link>
+              <Link
+                href="/servicos/integracoes"
+                className="hover:text-white transition-colors"
+              >
+                Integrações & APIs
+              </Link>
+              <Link
+                href="/servicos/saas"
+                className="hover:text-white transition-colors"
+              >
+                Plataformas SaaS
+              </Link>
+              <Link
+                href="/servicos/ecommerce"
+                className="hover:text-white transition-colors"
+              >
+                E-commerce & Funis
+              </Link>
+              <Link
+                href="/servicos/consultoria"
+                className="hover:text-white transition-colors"
+              >
+                Consultoria Técnica
+              </Link>
+            </div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <div className="flex flex-col gap-3 text-sm text-gray-400">
+              <Link
+                href="/privacidade"
+                className="hover:text-white transition-colors"
+              >
+                Política de Privacidade
+              </Link>
+              <Link
+                href="/termos"
+                className="hover:text-white transition-colors"
+              >
+                Termos de Uso
+              </Link>
+              <Link
+                href="/lgpd"
+                className="hover:text-white transition-colors"
+              >
+                LGPD & Segurança
+              </Link>
+            </div>
+          </div>
+
           {/* Fale Conosco */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Fale conosco</h3>
+            <h3 className="text-lg font-semibold mb-4">Fale Conosco</h3>
             <div className="flex flex-col gap-3 text-sm text-gray-400">
               <a
                 href="mailto:contato@mavicompany.com.br"
@@ -72,59 +180,36 @@ export function Footer() {
               >
                 +55 (99) 99150-6190
               </a>
-            </div>
-          </div>
-
-          {/* Serviços */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Serviços</h3>
-            <div className="flex flex-col gap-3 text-sm text-gray-400">
-              <Link
-                href="#acessoria"
+              <a
+                href="https://wa.me/5599991506190"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
               >
-                Acessoria
-              </Link>
-              <Link
-                href="#mv-exclusive"
-                className="hover:text-white transition-colors"
-              >
-                MV Exclusive
-              </Link>
-              <Link
-                href="#trabalhe-conosco"
-                className="hover:text-white transition-colors"
-              >
-                Trabalhe Conosco
-              </Link>
-            </div>
-          </div>
-
-          {/* Educação */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Educação</h3>
-            <div className="flex flex-col gap-3 text-sm text-gray-400">
-              <Link
-                href="#treinamento"
-                className="hover:text-white transition-colors"
-              >
-                Treinamento Impulso Digital
-              </Link>
-              <Link
-                href="#cientista"
-                className="hover:text-white transition-colors"
-              >
-                Cientista do Marketing
-              </Link>
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="pt-8 border-t border-gray-800">
-          <p className="text-center text-sm text-gray-500">
-            Copyright © 2025 MAVI COMPANY.
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-gray-500">
+              Copyright © 2025 MAVI COMPANY. Todos os direitos reservados.
+            </p>
+            <div className="flex items-center gap-6 text-sm text-gray-500">
+              <Link href="/privacidade" className="hover:text-white transition-colors">
+                Privacidade
+              </Link>
+              <Link href="/termos" className="hover:text-white transition-colors">
+                Termos
+              </Link>
+              <Link href="/lgpd" className="hover:text-white transition-colors">
+                LGPD
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
