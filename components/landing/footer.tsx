@@ -180,14 +180,14 @@ export function Footer() {
               >
                 +55 (99) 99150-6190
               </a>
-              <a
+              {/* <a
                 href="https://wa.me/5599991506190"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
               >
                 WhatsApp
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
