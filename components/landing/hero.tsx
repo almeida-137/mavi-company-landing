@@ -47,7 +47,7 @@ export function Hero() {
 
           {/* Subheadline */}
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Desenvolvemos sistemas, integracoes e automações inteligentes para empresas que querem crescer com tecnologia, previsibilidade e escala.
+            Desenvolvemos sistemas, integrações e automações inteligentes para empresas que querem crescer com tecnologia, previsibilidade e escala.
           </p>
 
           {/* CTAs */}

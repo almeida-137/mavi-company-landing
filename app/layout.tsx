@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   title: 'MaviCompany | Desenvolvimento e Automações com IA',
   description: 'Desenvolvemos sistemas, integrações e automações inteligentes para empresas que querem crescer com tecnologia, previsibilidade e escala.',
+  generator: 'v0.app',
   icons: {
     icon: [
       {
