@@ -81,12 +81,12 @@ export function Footer() {
               >
                 Contato
               </Link>
-              <Link
+              {/* <Link
                 href="/trabalhe-conosco"
                 className="hover:text-white transition-colors"
               >
                 Trabalhe Conosco
-              </Link>
+              </Link> */}
             </div>
           </div>
 
