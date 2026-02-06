@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const { name, email, phone, company, message, variant } = body
 
     // Validação básica
-    if (!name || !email || !phone || !variant) {
+    if (!name || !email || !phone) { 
       return NextResponse.json(
         { error: 'Campos obrigatórios faltando' },
         { status: 400 }
