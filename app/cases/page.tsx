@@ -118,8 +118,22 @@ const cases = [
       { label: "Melhoria na gestão financeira", value: "85%" },
       { label: "Redução de tempo de entrega de albuns", value: "35%" },
     ],
-    tags: ["SaaS", "Dashboard", "Gestão", "Leads", "CRM"],
+    tags: ["SaaS", "Dashboard", "Gestão", "Leads", "CRM", "B2C"],
     url: "https://gestor-fotografo.vercel.app/",
+  },
+  {
+    id: 9,
+    icon: BarChart3,
+    category: "Desenvolvimento",
+    title: "DocSafe - Sistema de Gestão de Documentos para Segurança do Trabalho",
+    description: "Sistema de gestão de documentos para empresas de segurança do trabalho, com controle de acesso, auditoria e relatórios personalizados.",
+    results: [
+      { label: "Aumento na produtividade", value: "40%" },
+      { label: "Melhoria na gestão de documentos", value: "85%" },
+      { label: "Redução de tempo de entrega de documentos", value: "35%" },
+    ],
+    tags: ["SaaS", "Dashboard", "Gestão", "SST", "B2B"],
+    url: "https://docsafe.app.br/",
   },
 ]
 
