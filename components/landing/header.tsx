@@ -71,6 +71,12 @@ export function Header() {
             >
               Para Quem
             </a>
+            <a
+              href="/cases"
+              className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium cursor-pointer"
+            >
+              Cases
+            </a>
           </nav>
 
           {/* CTA Button */}
