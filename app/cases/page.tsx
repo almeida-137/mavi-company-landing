@@ -107,6 +107,20 @@ const cases = [
     ],
     tags: ["IA", "Machine Learning", "Leads", "CRM"],
   },
+  {
+    id: 8,
+    icon: BarChart3,
+    category: "Desenvolvimento",
+    title: "Gestão Financeira para Fotográfos - Gestor Fotográfo",
+    description: "Sistema de gestão financeira especializado para fotógrafos, com controle de receitas, despesas e relatórios personalizados.",
+    results: [
+      { label: "Aumento na produtividade", value: "40%" },
+      { label: "Melhoria na gestão financeira", value: "85%" },
+      { label: "Redução de tempo de entrega de albuns", value: "35%" },
+    ],
+    tags: ["SaaS", "Dashboard", "Gestão", "Leads", "CRM"],
+    url: "https://gestor-fotografo.vercel.app/",
+  },
 ]
 
 export default function CasesPage() {
