@@ -109,7 +109,7 @@ const cases = [
   },
   {
     id: 8,
-    icon: BarChart3,
+    icon: Code2,
     category: "Desenvolvimento",
     title: "Gestão Financeira para Fotográfos - Gestor Fotográfo",
     description: "Sistema de gestão financeira especializado para fotógrafos, com controle de receitas, despesas e relatórios personalizados.",
@@ -123,7 +123,7 @@ const cases = [
   },
   {
     id: 9,
-    icon: BarChart3,
+    icon: Code2,
     category: "Desenvolvimento",
     title: "DocSafe - Sistema de Gestão de Documentos para Segurança do Trabalho",
     description: "Sistema de gestão de documentos para empresas de segurança do trabalho, com controle de acesso, auditoria e relatórios personalizados.",
