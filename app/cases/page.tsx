@@ -3,7 +3,7 @@ import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { ModalProvider } from "@/components/landing/modal-provider"
 import { PageHeader } from "@/components/page-header"
-import { ArrowUpRight, Bot, Code2, Plug, BarChart3 } from "lucide-react"
+import { ArrowUpRight, Bot, Code2, Plug, BarChart3, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -41,6 +41,48 @@ const cases = [
   },
   {
     id: 3,
+    icon: Code2,
+    category: "Desenvolvimento",
+    title: "Landing Page para Móveis Planejados Alto Padrão - Paulete Armários",
+    description: "Landing page otimizada para um cliente de móveis planejados, com foco em conversões e experiência do usuário.",
+    results: [
+      { label: "Conversões aumentadas", value: "42%" },
+      { label: "Tempo médio de permanência", value: "3m 45s" },
+      { label: "Taxa de rejeição reduzida", value: "28%" },
+    ],
+    tags: ["LandingPage", "Móveis", "Planejados", "Alto Padrão", "React"],
+    url: "https://pauletearmarios.com.br/",
+  },
+  {
+    id: 4,
+    icon: Code2,
+    category: "Desenvolvimento",
+    title: "Landing Page para Vidraria de Alto Padrão - Vitralle",
+    description: "Landing page otimizada para um cliente de vidraria de alto padrão, com foco em conversões e experiência do usuário.",
+    results: [
+      { label: "Conversões aumentadas", value: "38%" },
+      { label: "Tempo médio de permanência", value: "4m 12s" },
+      { label: "Taxa de rejeição reduzida", value: "25%" },
+    ],
+    tags: ["LandingPage", "Vidraria", "Alto Padrão", "React"],
+    url: "https://vitralle-design.vercel.app/",
+  },
+  {
+    id: 5,
+    icon: Code2,
+    category: "Desenvolvimento",
+    title: "Landing Page para Móveis Planejados Alto Padrão - Terra Ambientes",
+    description: "Landing page otimizada para um cliente de móveis planejados de alto padrão, com foco em conversões e experiência do usuário.",
+    results: [
+      { label: "Conversões aumentadas", value: "33%" },
+      { label: "Tempo médio de permanência", value: "3m 20s" },
+      { label: "Taxa de rejeição reduzida", value: "16%" },
+    ],
+    tags: ["LandingPage", "Móveis", "Planejados", "Alto Padrão", "React"],
+    url: "https://terraambientes.com.br/",
+  },
+  {
+    id: 6,
     icon: Plug,
     category: "Integrações",
     title: "Integração Multi-plataforma",
@@ -53,7 +95,7 @@ const cases = [
     tags: ["API", "CRM", "ERP", "Pagamentos"],
   },
   {
-    id: 4,
+    id: 7,
     icon: BarChart3,
     category: "Analytics & IA",
     title: "Sistema de Classificação de Leads",
@@ -129,6 +171,19 @@ export default function CasesPage() {
                       </span>
                     ))}
                   </div>
+                  
+                  {/* Link to visit site */}
+                  {caseItem.url && (
+                    <a
+                      href={caseItem.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                    >
+                      Visitar site
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
