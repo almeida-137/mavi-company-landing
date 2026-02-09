@@ -51,7 +51,7 @@ const cases = [
       { label: "Taxa de rejeição reduzida", value: "28%" },
     ],
     tags: ["LandingPage", "Móveis", "Planejados", "Alto Padrão", "React"],
-    url: "https://pauletearmarios.com.br/",
+    url: "https://paulete-armarios.vercel.app/",
   },
   {
     id: 4,
@@ -79,7 +79,7 @@ const cases = [
       { label: "Taxa de rejeição reduzida", value: "16%" },
     ],
     tags: ["LandingPage", "Móveis", "Planejados", "Alto Padrão", "React"],
-    url: "https://terraambientes.com.br/",
+    url: "https://terra-ambientes.vercel.app/",
   },
   {
     id: 6,
