@@ -149,6 +149,20 @@ const cases = [
     tags: ["SaaS", "Dashboard", "Gestão", "Síndicos", "Condomínios", "B2B"],
     url: "https://condo-app-alpha.vercel.app/",
   },
+  {
+    id: 11,
+    icon: Code2,
+    category: "Desenvolvimento",
+    title: "Loyalts - Sistema de Gestão de Programas de Fidelidade para Pequenos Negócios",
+    description: "Sistema de gestão de programas de fidelidade para pequenos negócios, com controle de acesso, auditoria e relatórios personalizados.",
+    results: [
+      { label: "Melhoria na fidelidade dos clientes", value: "35%" },
+      { label: "Melhoria na gestão de programas de fidelidade", value: "45%" },
+      { label: "Aumento de vendas", value: "65%" },
+    ],
+    tags: ["SaaS", "Dashboard", "Gestão", "Fidelidade", "Pequenos Negócios", "B2B"],
+    url: "https://loyaltys.vercel.app/",
+  },
 ]
 
 export default function CasesPage() {
