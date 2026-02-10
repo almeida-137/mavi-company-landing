@@ -135,6 +135,20 @@ const cases = [
     tags: ["SaaS", "Dashboard", "Gestão", "SST", "B2B"],
     url: "https://docsafe.app.br/",
   },
+  {
+    id: 10,
+    icon: Code2,
+    category: "Desenvolvimento",
+    title: "CondoApp - Sistema de Gestão para Síndicos, Condomínios e Apartamentos",
+    description: "Sistema de gestão para síndicos, condomínios e apartamentos, com controle de acesso, auditoria e relatórios personalizados.",
+    results: [
+      { label: "Melhoria no controle de alertas e avisos", value: "65%" },
+      { label: "Melhoria na gestão de condomínios", value: "55%" },
+      { label: "Melhoria na gestão de visitantes e encomendas", value: "45%" },
+    ],
+    tags: ["SaaS", "Dashboard", "Gestão", "Síndicos", "Condomínios", "B2B"],
+    url: "https://condo-app-alpha.vercel.app/",
+  },
 ]
 
 export default function CasesPage() {
