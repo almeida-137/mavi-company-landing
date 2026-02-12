@@ -163,6 +163,20 @@ const cases = [
     tags: ["SaaS", "Dashboard", "Gestão", "Fidelidade", "Pequenos Negócios", "B2B"],
     url: "https://loyaltys.vercel.app/",
   },
+  {
+    id: 12,
+    icon: Code2,
+    category: "Desenvolvimento",
+    title: "Landing Page para Estofados de Alto Padrão - Estofados Linne",
+    description: "Landing page para estofados de alto padrão, com design moderno e funcionalidades de marketing digital.",
+    results: [
+      { label: "Conversões aumentadas", value: "37%" },
+      { label: "Tempo médio de permanência", value: "4m 50s" },
+      { label: "Taxa de rejeição reduzida", value: "22%" },
+    ],
+    tags: ["LandingPage", "Alto Padrão", "Estofados"],
+    url: "https://linne-estofados.vercel.app/",
+  },
 ]
 
 export default function CasesPage() {
