@@ -1,373 +1,268 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 const technologies = [
   // AI & APIs
   {
     name: "OpenAI",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.896zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z" />
-      </svg>
-    ),
+    category: "Automação & IA",
+    icon: "https://cdn.simpleicons.org/openai/FFFFFF",
   },
   {
-    name: "WhatsApp API",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-      </svg>
-    ),
+    name: "Anthropic Claude",
+    category: "Automação & IA",
+    icon: "https://cdn.simpleicons.org/anthropic/FFFFFF",
   },
   {
-    name: "Webhooks",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M10.46 19.998h.002a.498.498 0 0 1 .498-.498h2.08c.275 0 .498.223.498.498v.004a.498.498 0 0 1-.498.498h-2.08a.498.498 0 0 1-.498-.498v-.004zm9.038-13.496c.01.387-.001 1.084-.297 1.83-.388.978-1.009 1.773-1.787 2.426.302.495.53 1.032.673 1.604.246.982.246 2.013 0 2.995a6.893 6.893 0 0 1-.673 1.604c.778.653 1.399 1.448 1.787 2.426.296.746.307 1.443.297 1.83a.5.5 0 0 1-.5.48h-.003a.5.5 0 0 1-.497-.503c.008-.29-.003-.857-.23-1.432-.306-.772-.82-1.432-1.485-1.963a6.635 6.635 0 0 1-1.372 1.369 6.893 6.893 0 0 1-2.426.95 6.974 6.974 0 0 1-2.995 0 6.893 6.893 0 0 1-2.426-.95 6.635 6.635 0 0 1-1.372-1.369c-.665.531-1.179 1.191-1.485 1.963-.227.575-.238 1.142-.23 1.432a.5.5 0 0 1-.497.503h-.003a.5.5 0 0 1-.5-.48c-.01-.387.001-1.084.297-1.83.388-.978 1.009-1.773 1.787-2.426a6.893 6.893 0 0 1-.673-1.604 6.974 6.974 0 0 1 0-2.995c.143-.572.371-1.109.673-1.604-.778-.653-1.399-1.448-1.787-2.426-.296-.746-.307-1.443-.297-1.83a.5.5 0 0 1 .5-.48h.003a.5.5 0 0 1 .497.503c-.008.29.003.857.23 1.432.306.772.82 1.432 1.485 1.963a6.635 6.635 0 0 1 1.372-1.369 6.893 6.893 0 0 1 2.426-.95 6.974 6.974 0 0 1 2.995 0c.882.181 1.7.523 2.426.95a6.635 6.635 0 0 1 1.372 1.369c.665-.531 1.179-1.191 1.485-1.963.227-.575.238-1.142.23-1.432a.5.5 0 0 1 .497-.503h.003a.5.5 0 0 1 .5.48zM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0-1a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
-      </svg>
-    ),
+    name: "WhatsApp",
+    category: "Automação & IA",
+    icon: "https://cdn.simpleicons.org/whatsapp/FFFFFF",
   },
-  // Automation
   {
     name: "n8n",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M18.5 2h-13A3.5 3.5 0 0 0 2 5.5v13A3.5 3.5 0 0 0 5.5 22h13a3.5 3.5 0 0 0 3.5-3.5v-13A3.5 3.5 0 0 0 18.5 2zm-8.25 15h-2.5v-7h2.5v7zm7.5 0h-2.5V7h2.5v10z" />
-      </svg>
-    ),
+    category: "Automação & IA",
+    icon: "https://cdn.simpleicons.org/n8n/FFFFFF",
   },
   {
     name: "Make",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.82 8 12 11.82 4.18 8 12 4.18zM4 9.5l7 3.5v7l-7-3.5v-7zm16 0v7l-7 3.5v-7l7-3.5z" />
-      </svg>
-    ),
+    category: "Automação & IA",
+    icon: "https://cdn.simpleicons.org/make/FFFFFF",
+  },
+  {
+    name: "Zapier",
+    category: "Automação & IA",
+    icon: "https://cdn.simpleicons.org/zapier/FFFFFF",
   },
   {
     name: "ManyChat",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.68-.28-3.87-.78l-.28-.14-2.91.49.49-2.91-.14-.28C4.78 14.68 4.5 13.38 4.5 12 4.5 7.86 7.86 4.5 12 4.5S19.5 7.86 19.5 12 16.14 19.5 12 19.5z" />
-        <circle cx="8.5" cy="12" r="1.5" />
-        <circle cx="12" cy="12" r="1.5" />
-        <circle cx="15.5" cy="12" r="1.5" />
-      </svg>
-    ),
+    category: "Automação & IA",
+    icon: "https://cdn.simpleicons.org/manychat/FFFFFF",
   },
+
   // Frontend & Framework
   {
     name: "Next.js",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.251 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.572 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z" />
-      </svg>
-    ),
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF",
   },
   {
     name: "React",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89 0 1-.84 1.85-1.87 1.85S10.13 13 10.13 12c0-1.05.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9c-.6 0-1.17 0-1.71.03-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03.6 0 1.17 0 1.71-.03.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.52.59 1.03 1.23 1.51 1.9.82.08 1.63.2 2.4.36.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63 2.54.75 4.37 1.99 4.37 3.68s-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63-1.46.84-3.45-.12-5.37-1.95-1.92 1.83-3.91 2.79-5.38 1.95-1.46-.84-1.62-3.05-1-5.63-2.54-.75-4.37-1.99-4.37-3.68s1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1-5.63 1.47-.84 3.46.12 5.38 1.95 1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26 2.1-.63 3.28-1.53 3.28-2.26 0-.73-1.18-1.63-3.28-2.26-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26-2.1.63-3.28 1.53-3.28 2.26 0 .73 1.18 1.63 3.28 2.26.25-.76.55-1.51.89-2.26m9 2.26l-.3.51c.31-.05.61-.1.88-.16-.07-.28-.18-.57-.29-.86l-.29.51m-2.89 4.04c1.59 1.5 2.97 2.08 3.59 1.7.64-.35.83-1.82.32-3.96-.77.16-1.58.28-2.4.36-.48.67-.99 1.31-1.51 1.9M8.08 9.74l.3-.51c-.31.05-.61.1-.88.16.07.28.18.57.29.86l.29-.51m2.89-4.04C9.38 4.2 8 3.62 7.37 4c-.63.35-.82 1.82-.31 3.96a22.7 22.7 0 0 1 2.4-.36c.48-.67.99-1.31 1.51-1.9z" />
-      </svg>
-    ),
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/react/FFFFFF",
   },
   {
     name: "TypeScript",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M0 12v12h24V0H0zm19.341-.956c.61.152 1.074.423 1.501.865.221.236.549.666.575.73.008.02-1.09.77-1.747 1.205-.02.013-.175-.128-.35-.317-.383-.413-.738-.577-1.238-.577-.545 0-.888.164-1.111.532-.096.159-.108.207-.108.569 0 .341.014.422.102.572.177.299.514.48 1.11.598.997.198 1.614.456 2.039.853.476.443.696.992.696 1.737 0 .559-.073.96-.256 1.398-.275.658-.864 1.184-1.635 1.459-.433.154-1.034.187-1.549.087-.843-.164-1.512-.515-2.07-1.086-.24-.246-.701-.85-.701-.921 0-.03.119-.081.263-.113l.519-.113.445-.243.238-.132.154.183c.416.488.79.681 1.297.681.368 0 .579-.061.787-.229.208-.168.299-.383.299-.667 0-.281-.079-.469-.276-.656-.234-.223-.622-.368-1.608-.605-.909-.217-1.377-.434-1.764-.82-.556-.554-.768-1.205-.768-2.362 0-.896.175-1.481.599-2.006.504-.625 1.272-.981 2.311-1.071.394-.034 1.264.007 1.64.077z M12.5 14.5h1.5v5h-1.5zm-1.5-2v2H7.5v6.5H6V14.5H2.5v-2z" />
-      </svg>
-    ),
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/typescript/FFFFFF",
   },
   {
     name: "Tailwind CSS",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.91-1.35C15.61 7.15 14.5 6 12 6zm-5 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.91 1.35C8.39 16.85 9.5 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.91-1.35C10.61 13.15 9.5 12 7 12z" />
-      </svg>
-    ),
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/tailwindcss/FFFFFF",
   },
-  // CMS & E-commerce
-  {
-    name: "WordPress",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12.158 12.786L9.46 20.625c.806.237 1.657.366 2.54.366 1.047 0 2.051-.18 2.986-.51a1.036 1.036 0 0 1-.088-.192l-2.74-7.503zM3.009 12c0 3.559 2.068 6.634 5.067 8.092L3.788 8.341A8.904 8.904 0 0 0 3.009 12zm15.54.895l-3.46 10.015c1.029-.598 1.932-1.397 2.643-2.344.713-.948 1.25-2.04 1.572-3.198a1.028 1.028 0 0 1-.06-.223l-.695-4.25zm.431-3.366c.452.847.705 1.817.705 2.844 0 1.265-.348 2.474-.956 3.505l-3.812 11.022c2.987-1.74 4.992-4.982 4.992-8.682 0-1.792-.482-3.473-1.324-4.926l.395.237zM12 2.25A9.75 9.75 0 0 0 2.25 12 9.75 9.75 0 0 0 12 21.75 9.75 9.75 0 0 0 21.75 12 9.75 9.75 0 0 0 12 2.25z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Elementor",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM9 17H7V7h2v10zm8 0h-6v-2h6v2zm0-4h-6v-2h6v2zm0-4h-6V7h6v2z" />
-      </svg>
-    ),
-  },
-  {
-    name: "WooCommerce",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M23.735 10.937s.022-3.072-2.042-5.367c-2.246-2.495-5.452-2.496-7.845-2.496h-7.69C3.565 3.074.512 3.074.265 5.57L.003 19.597s-.024 1.363 1.387 1.363h3.26s1.17.232 1.17-1.208V15.36s-.232-1.209 1.209-1.209h3.024s5.13.128 7.633-2.787c1.642-1.913 2.313-3.511 2.313-3.511s1.209-2.916 2.736-2.916zm-9.417 3.976c-1.218 1.29-3.036 1.243-3.036 1.243h-2.83s-1.035.047-1.035-1.034v-4.14s-.035-1.024 1.023-1.024h2.842s1.851-.011 3.013 1.302c1.196 1.35 1.161 2.442 1.161 2.442s.127 1.013-1.138 2.211z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Shopify",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M15.337 2.132c-.033.012-.066.024-.099.024-.033 0-.825.099-1.749.231-.924.132-1.782.264-1.782.264s-.561-.561-1.254-.561h-.132c-.165-.231-.396-.429-.693-.429-1.848 0-2.706 2.277-2.97 3.465-.693.231-1.188.396-1.254.429-.396.099-.396.132-.429.495-.033.231-.858 6.6-.858 6.6L14.91 24l7.953-1.716S15.766 2.165 15.568 2.132c-.066-.033-.165-.033-.231 0zm-2.277 1.848c-.165.033-.33.099-.495.132v-.099c0-.429-.033-.759-.099-1.056.297.033.561.363.594.726zm-1.056-.165c.033.264.066.561.066.957v.066c-.429.132-.858.264-1.32.396.264-.957.693-1.419 1.254-1.419zm-.231-1.188c.099 0 .165.033.231.066-.66.33-1.221 1.056-1.518 2.376-.429.132-.825.264-1.188.363.297-1.254 1.221-2.805 2.475-2.805zm5.082 15.774c-.033.858-.693 1.122-1.452 1.221-1.056.132-1.749-.099-2.31-.495-.462-.33-.693-.726-.693-1.221 0-.726.528-1.419 1.551-1.419.462 0 .825.099 1.122.231.429.165.693.396.825.693.132.297.198.66.165 1.056-.033.594-.363 1.089-.726 1.419-.396.33-.924.528-1.485.594-.528.066-1.023-.033-1.419-.264-.396-.231-.66-.561-.792-1.023-.132-.462-.132-.957.033-1.485.165-.528.495-1.023.924-1.419.429-.396.957-.693 1.551-.792.594-.099 1.155-.033 1.617.231.462.264.792.693.99 1.221.165.528.231 1.089.165 1.683-.066.594-.297 1.155-.693 1.617-.396.462-.924.759-1.518.924-.594.165-1.221.198-1.815.099-.594-.099-1.155-.33-1.617-.726-.462-.396-.792-.924-.99-1.518-.198-.594-.231-1.221-.165-1.848.066-.627.297-1.221.693-1.716.396-.495.924-.825 1.518-1.023.594-.198 1.221-.264 1.848-.198.627.066 1.221.297 1.716.693.495.396.825.924 1.023 1.518.198.594.264 1.221.198 1.848zm-8.184-13.794c0 .396-.033.759-.099 1.089-.033.132-.066.231-.099.363-.297-.033-.594-.099-.891-.165.165-.891.528-1.518.99-1.815.066.165.099.33.099.528z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Yampi",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.82 8 12 11.82 4.18 8 12 4.18zM4 9.5l7 3.5v7l-7-3.5v-7zm16 0v7l-7 3.5v-7l7-3.5z" />
-        <circle cx="12" cy="12" r="2.5" />
-      </svg>
-    ),
-  },
-  // Backend & Database
   {
     name: "Node.js",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.604.065-.037.151-.023.218.017l2.256 1.339a.29.29 0 0 0 .272 0l8.795-5.076a.277.277 0 0 0 .134-.238V6.921a.283.283 0 0 0-.137-.242l-8.791-5.072a.278.278 0 0 0-.271 0L3.075 6.68a.284.284 0 0 0-.139.241v10.15c0 .099.053.19.139.236l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551l-2.306-1.326a1.85 1.85 0 0 1-.922-1.604V6.921c0-.659.353-1.275.922-1.603l8.795-5.082a1.932 1.932 0 0 1 1.852 0l8.794 5.082c.57.329.924.944.924 1.603v10.15a1.86 1.86 0 0 1-.924 1.604l-8.794 5.078c-.28.163-.6.247-.922.247z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Supabase",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z" />
-      </svg>
-    ),
-  },
-  {
-    name: "PostgreSQL",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M17.128 0a10.134 10.134 0 0 0-2.755.403l-.063.02a10.922 10.922 0 0 0-1.612.074c-.596-.06-1.196-.096-1.729-.072a6.526 6.526 0 0 0-4.559 1.848c-.905.1-1.79.352-2.38.544-.581.19-1.087.41-1.56.67C.86 4.365.201 6.292.121 8.79c-.024.748.001 1.54.071 2.368s.153 1.706.325 2.654a38.386 38.386 0 0 0 .848 3.537c.258.859.557 1.676.935 2.343.19.333.404.636.65.893.123.129.267.243.425.337.078.047.161.09.248.124.089.035.184.062.284.074a.924.924 0 0 0 .346-.023.97.97 0 0 0 .393-.181c.251-.193.456-.44.627-.718.238-.388.422-.828.574-1.293.153-.468.282-.96.391-1.465l.03-.127a9.38 9.38 0 0 0 .135-.645 2.55 2.55 0 0 0 .39.103c.35.07.71.107 1.077.111.228-.003.457-.013.688-.029-.142.312-.238.673-.283 1.059a2.937 2.937 0 0 0 .143 1.244c.103.29.26.546.462.737.1.095.21.173.329.233.059.03.121.055.185.074.062.02.127.032.194.037a.95.95 0 0 0 .234-.012 1.019 1.019 0 0 0 .314-.116c.13-.067.25-.16.358-.274.256-.272.455-.643.617-1.07a7.84 7.84 0 0 0 .354-1.357c.073-.41.12-.843.145-1.28.01-.185.018-.36.022-.544-.001-.168-.004-.35-.026-.529.13.046.264.085.4.117.286.066.586.11.89.133.072.006.145.01.218.014.086.001.17.003.252.003.152-.002.3-.013.444-.03a4.64 4.64 0 0 0 .552-.098 2.53 2.53 0 0 0 .24-.069c.004.084.01.168.018.251.03.296.075.596.163.876.087.28.215.548.403.768.094.11.203.207.326.284a.988.988 0 0 0 .407.157 1.04 1.04 0 0 0 .318 0c.096-.015.185-.045.269-.084a1.38 1.38 0 0 0 .374-.255c.229-.213.408-.5.553-.838.196-.457.342-1.015.448-1.64.107-.629.175-1.32.22-2.05.036-.596.05-1.131.069-1.578a4.81 4.81 0 0 0 .043-.64 2.27 2.27 0 0 0-.014-.252c.088-.08.173-.163.254-.25a8.9 8.9 0 0 0 1.498-2.33c.242-.538.437-1.118.557-1.717.12-.598.166-1.226.104-1.834a3.926 3.926 0 0 0-.503-1.555 3.198 3.198 0 0 0-.31-.428 3.018 3.018 0 0 0-.371-.35 3.89 3.89 0 0 0-.813-.474 7.383 7.383 0 0 0-1.02-.376 12.046 12.046 0 0 0-1.97-.376A12.78 12.78 0 0 0 17.128 0z" />
-      </svg>
-    ),
-  },
-  {
-    name: "MongoDB",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0011.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z" />
-      </svg>
-    ),
-  },
-  // Payment & Services
-  {
-    name: "Stripe",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Mercado Pago",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M15.753 6.41c-1.728 0-3.133 1.404-3.133 3.133v4.505c0 1.728 1.404 3.133 3.133 3.133h4.505c1.728 0 3.133-1.404 3.133-3.133V9.543c0-1.728-1.404-3.133-3.133-3.133h-4.505zm-7.506 0C6.519 6.41 5.115 7.814 5.115 9.543v4.505c0 1.728 1.404 3.133 3.133 3.133h4.505c1.728 0 3.133-1.404 3.133-3.133V9.543c0-1.728-1.404-3.133-3.133-3.133H8.247zM1.609 6.41C.882 6.41.289 7.004.289 7.73v8.54c0 .727.593 1.32 1.32 1.32h8.54c.727 0 1.32-.593 1.32-1.32V7.73c0-.727-.593-1.32-1.32-1.32h-8.54z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Hotmart",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.03 2 11c0 3.31 2.05 6.25 5.14 7.89L6 22l3.45-2.07c.84.19 1.7.29 2.55.29 5.52 0 10-4.03 10-9s-4.48-9-10-9zm1.5 13.5h-3V8h3v7.5z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Kiwify",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 2C7.03 2 3 6.03 3 11c0 4.97 4.03 9 9 9s9-4.03 9-9c0-4.97-4.03-9-9-9zm-1.2 13.5L7.5 12l3.3-3.5V11h3.6v2h-3.6v2.5z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Kirvano",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M4 4h4l4 6 4-6h4l-6 9v7h-4v-7L4 4z" />
-      </svg>
-    ),
-  },
-  {
-    name: "AbacatePay",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 2C7.59 2 4 5.59 4 10c0 4.06 3.03 7.44 7 7.93V22h2v-4.07c3.97-.49 7-3.87 7-7.93 0-4.41-3.59-8-8-8zm0 13a5 5 0 110-10 5 5 0 010 10z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Webhooks de Venda",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M4 12a4 4 0 014-4h3v2H8a2 2 0 000 4h3v2H8a4 4 0 01-4-4zm6 1h4v-2h-4v2zm6-5h-3V6h3a4 4 0 010 8h-3v-2h3a2 2 0 000-4z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Integrações com ERPs",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M4 6h6V4H4v2zm0 7h6v-2H4v2zm0 7h6v-2H4v2zm8-11h8V4h-8v5zm0 7h8v-5h-8v5z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Gateways de Pagamento",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v3H2V6zm0 5h20v7a2 2 0 01-2 2H4a2 2 0 01-2-2v-7zm4 4h4v2H6v-2z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Agentes de IA",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 2a4 4 0 014 4v1h2a2 2 0 012 2v7a2 2 0 01-2 2h-2v1a4 4 0 01-8 0v-1H6a2 2 0 01-2-2V9a2 2 0 012-2h2V6a4 4 0 014-4zm-2 5h4V6a2 2 0 00-4 0v1zm-2 4v2h2v-2H8zm6 0v2h2v-2h-2z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Fluxos Inteligentes",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M5 3h4v4H5V3zm10 0h4v4h-4V3zM5 17h4v4H5v-4zm10 0h4v4h-4v-4zM9 5h6v2H9V5zm0 12h6v2H9v-2zM7 9h2v6H7V9zm8 0h2v6h-2V9z" />
-      </svg>
-    ),
-  },
-
-  {
-    name: "Automação de Pedidos",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M3 3h18v2H3V3zm2 4h14l-1.5 9h-11L5 7zm4 11a2 2 0 104 0H9zm6 0a2 2 0 104 0h-4z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Automação de Estoque",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M4 4h16v4H4V4zm0 6h16v10H4V10zm6 2v6h4v-6h-4z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Checkout Customizado",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M7 4h10l1 4H6l1-4zm-3 6h16v10H4V10zm6 3v2h4v-2h-4z" />
-      </svg>
-    ),
-  },
-
-  {
-    name: "Google Cloud",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007c1.102.903 2.614 1.426 4.138 1.426 1.012 0 2.381-.248 3.364-.741.408-.21.757-.395.988-.53.524-.305.934-.564 1.25-.81.265-.207.521-.41.768-.604a8.683 8.683 0 0 0-.02-1.05 8.297 8.297 0 0 0-2.047-4.746 8.315 8.315 0 0 0-6.012-2.634c-.123 0-.24.01-.362.015.353-2.135 2.07-3.794 4.31-4.246 2.823-.57 5.567.95 6.675 3.51l.01.024c.003.005.006.01.01.016l.03.054.03.03.022.05c.14.292.223.605.223.937 0 1.07-.67 1.983-1.612 2.338a2.39 2.39 0 0 1-.814.138c-.92 0-1.737-.52-2.14-1.28-.184-.345-.29-.735-.29-1.15 0-.148.013-.294.038-.437a1.466 1.466 0 0 0-.384.193 1.46 1.46 0 0 0-.488 2.012c.603 1.007 1.693 1.681 2.946 1.681.396 0 .777-.068 1.13-.193a3.733 3.733 0 0 0 2.49-3.495c0-.616-.15-1.197-.414-1.708l-.034-.065-.012-.012-.006-.013-.012-.012-.006-.007a8.698 8.698 0 0 0-.035-.065 8.796 8.796 0 0 0-3.664-3.458A8.69 8.69 0 0 0 12.19 2.38z" />
-      </svg>
-    ),
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/nodedotjs/FFFFFF",
   },
   {
     name: "Vercel",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 1.5L1.5 22.5h21L12 1.5z" />
-      </svg>
-    ),
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/vercel/FFFFFF",
+  },
+
+  // Database & Backend
+  {
+    name: "Supabase",
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/supabase/FFFFFF",
   },
   {
-    name: "Pagamentos Recorrentes",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M12 4a8 8 0 108 8h-2a6 6 0 11-6-6V4zm1 1v6l4 2-.8 1.8L11 12V5h2z" />
-      </svg>
-    ),
+    name: "PostgreSQL",
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/postgresql/FFFFFF",
   },
   {
-    name: "Controle de Assinaturas SaaS",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M6 2h12a2 2 0 012 2v16l-4-3-4 3-4-3-4 3V4a2 2 0 012-2zm3 6h6v2H9V8zm0 4h6v2H9v-2z" />
-      </svg>
-    ),
+    name: "MongoDB",
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/mongodb/FFFFFF",
   },
   {
-    name: "Webhooks de Pagamento",
-    logo: (
-      <svg viewBox="0 0 24 24" className="h-8 w-8" fill="currentColor">
-        <path d="M7 2a5 5 0 015 5h-2a3 3 0 00-6 0c0 1.7 1.3 3 3 3h2a5 5 0 010 10H8a5 5 0 01-5-5h2a3 3 0 006 0c0-1.7-1.3-3-3-3H6a5 5 0 010-10h1z" />
-      </svg>
-    ),
+    name: "Google Cloud",
+    category: "Websites & Aplicações Web",
+    icon: "https://cdn.simpleicons.org/googlecloud/FFFFFF",
+  },
+
+  // CMS & E-commerce
+  {
+    name: "WordPress",
+    category: "E-commerces & Plataformas de Venda",
+    icon: "https://cdn.simpleicons.org/wordpress/FFFFFF",
+  },
+  {
+    name: "WooCommerce",
+    category: "E-commerces & Plataformas de Venda",
+    icon: "https://cdn.simpleicons.org/woo/FFFFFF",
+  },
+  {
+    name: "Shopify",
+    category: "E-commerces & Plataformas de Venda",
+    icon: "https://cdn.simpleicons.org/shopify/FFFFFF",
+  },
+  {
+    name: "Elementor",
+    category: "E-commerces & Plataformas de Venda",
+    icon: "https://cdn.simpleicons.org/elementor/FFFFFF",
+  },
+
+  // Payment
+  {
+    name: "Stripe",
+    category: "Pagamentos & Assinaturas",
+    icon: "https://cdn.simpleicons.org/stripe/FFFFFF",
+  },
+  {
+    name: "Mercado Pago",
+    category: "Pagamentos & Assinaturas",
+    icon: "https://cdn.simpleicons.org/mercadopago/FFFFFF",
+  },
+  {
+    name: "PayPal",
+    category: "Pagamentos & Assinaturas",
+    icon: "https://cdn.simpleicons.org/paypal/FFFFFF",
   },
 ];
 
-const categories = {
-  "Websites & Aplicações Web": [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Node.js",
-    "Supabase",
-    "PostgreSQL",
-    "MongoDB",
-    "Google Cloud",
-  ],
+const categories = [
+  {
+    name: "Automação & IA",
+    items: [
+      "OpenAI",
+      "Anthropic Claude",
+      "WhatsApp",
+      "n8n",
+      "Make",
+      "Zapier",
+      "ManyChat",
+    ],
+  },
+  {
+    name: "Websites & Aplicações Web",
+    items: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Vercel",
+      "Supabase",
+      "PostgreSQL",
+      "MongoDB",
+      "Google Cloud",
+    ],
+  },
+  {
+    name: "E-commerces & Plataformas de Venda",
+    items: ["WordPress", "WooCommerce", "Shopify", "Elementor"],
+  },
+  {
+    name: "Pagamentos & Assinaturas",
+    items: ["Stripe", "Mercado Pago", "PayPal"],
+  },
+];
 
-  "E-commerces & Plataformas de Venda": [
-    "Shopify",
-    "WooCommerce",
-    "Yampi",
-    "Integrações com ERPs",
-    "Gateways de Pagamento",
-    "Automação de Pedidos",
-    "Automação de Estoque",
-    "Checkout Customizado",
-  ],
+function InfiniteCarousel({ items }: { items: string[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  "Automação & IA": [
-    "OpenAI",
-    "WhatsApp API",
-    "Webhooks",
-    "APIs REST",
-    "n8n",
-    "Make",
-    "ManyChat",
-    "Agentes de IA",
-    "Fluxos Inteligentes",
-  ],
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
 
-  "Pagamentos & Assinaturas": [
-    "Stripe",
-    "Mercado Pago",
-    "Pagamentos Recorrentes",
-    "Controle de Assinaturas SaaS",
-    "Webhooks de Pagamento",
-  ],
-  "Plataformas de Infoprodutos": [
-    "Hotmart",
-    "Kiwify",
-    "Kirvano",
-    "AbacatePay",
-    "Webhooks de Venda",
-  ],
-};
+    let animationId: number;
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5; // pixels per frame
+
+    const animate = () => {
+      scrollPosition += scrollSpeed;
+
+      // Reset quando chegar no meio (onde começa a duplicata)
+      if (scrollPosition >= scrollContainer.scrollWidth / 2) {
+        scrollPosition = 0;
+      }
+
+      scrollContainer.scrollLeft = scrollPosition;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    // Pausar no hover
+    const handleMouseEnter = () => cancelAnimationFrame(animationId);
+    const handleMouseLeave = () => {
+      animationId = requestAnimationFrame(animate);
+    };
+
+    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
+    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
+      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  const techs = items.map((name) =>
+    technologies.find((t) => t.name === name)
+  );
+
+  // Duplicar os itens para criar efeito infinito
+  const duplicatedTechs = [...techs, ...techs];
+
+  return (
+    <div className="relative overflow-hidden">
+      {/* Gradient overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-hidden py-4"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        {duplicatedTechs.map((tech, index) =>
+          tech ? (
+            <div
+              key={`${tech.name}-${index}`}
+              className="group relative flex flex-col items-center gap-3 flex-shrink-0"
+            >
+              {/* Card com fundo preto */}
+              <div className="relative p-6 rounded-2xl bg-black border border-border/30 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1 w-[120px] h-[120px] flex items-center justify-center">
+                <img
+                  src={tech.icon}
+                  alt={tech.name}
+                  className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              </div>
+
+              <span className="text-xs font-medium text-muted-foreground text-center whitespace-nowrap">
+                {tech.name}
+              </span>
+            </div>
+          ) : null
+        )}
+      </div>
+    </div>
+  );
+}
 
 export function Technologies() {
   return (
@@ -394,33 +289,14 @@ export function Technologies() {
           </p>
         </div>
 
-        <div className="space-y-16">
-          {Object.entries(categories).map(([category, techNames]) => (
-            <div key={category} className="space-y-8">
+        <div className="space-y-12">
+          {categories.map((category) => (
+            <div key={category.name} className="space-y-6">
               <h3 className="text-xl md:text-2xl font-semibold text-foreground/90 text-center">
-                {category}
+                {category.name}
               </h3>
 
-              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 max-w-5xl mx-auto">
-                {technologies
-                  .filter((tech) => techNames.includes(tech.name))
-                  .map((tech) => (
-                    <div
-                      key={tech.name}
-                      className="group relative flex flex-col items-center gap-3 p-6 rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm hover:border-primary/50 hover:bg-card/60 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 min-w-[140px]"
-                    >
-                      <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 transform">
-                        {tech.logo}
-                      </div>
-                      <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                        {tech.name}
-                      </span>
-
-                      {/* Hover effect glow */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                    </div>
-                  ))}
-              </div>
+              <InfiniteCarousel items={category.items} />
             </div>
           ))}
         </div>
